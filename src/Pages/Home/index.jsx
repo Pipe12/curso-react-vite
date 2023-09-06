@@ -1,8 +1,8 @@
-function Home() {
+const Home = () => {
   return (
-    <h1 className="bg-red-500">
+    <>
       Home
-    </h1>
+    </>
   )
 }
 

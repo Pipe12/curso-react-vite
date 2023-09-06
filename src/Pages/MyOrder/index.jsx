@@ -1,8 +1,8 @@
-function MyOrder() {
+const MyOrder = () => {
   return (
-    <h1 className="bg-red-500">
-      MyOrder
-    </h1>
+    <>
+      My Order
+    </>
   )
 }
 

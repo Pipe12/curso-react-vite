@@ -1,8 +1,8 @@
-function SignIn() {
+const SignIn = () => {
   return (
-    <h1 className="bg-red-500">
-      SignIn
-    </h1>
+    <>
+      Sign In
+    </>
   )
 }
 
