@@ -1,7 +1,10 @@
+import Card from "../../Components/Card"
+
 const Home = () => {
   return (
     <>
-      Home
+      home
+      <Card />
     </>
   )
 }
