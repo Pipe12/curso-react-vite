@@ -1,10 +1,20 @@
-import { createContext } from "react"
+import { createContext, useState } from "react"
+import PropTypes from 'prop-types'
 
-const ShoppingCartContext = createContext()
+export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({ children }) => {
+  ShoppingCartProvider.propTypes = {
+    children: PropTypes.node,
+  }
+
+  const [counter, setCounter] = useState(0)
+
   return (
-    <ShoppingCartContext.Provider>
+    <ShoppingCartContext.Provider value={{
+      counter,
+      setCounter
+    }}>
       { children }
     </ShoppingCartContext.Provider>
   )

@@ -16,10 +16,7 @@ const Home = () => {
       Home
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
         {
-          products?.map((product) => {
-            console.log(product)
-            return <Card key={product.id} { ...product }/>
-          })
+          products?.map((product) => <Card key={product.id} { ...product }/>)
         }
       </div>
     </>
