@@ -1,9 +1,1 @@
-const MyOrders = () => {
-  return (
-    <>
-      My Orders
-    </>
-  )
-}
-
-export default MyOrders
+export { default } from './MyOrders'

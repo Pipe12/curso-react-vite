@@ -1,9 +1,1 @@
-const SignIn = () => {
-  return (
-    <>
-      Sign In
-    </>
-  )
-}
-
-export default SignIn
+export { default } from './SignIn'

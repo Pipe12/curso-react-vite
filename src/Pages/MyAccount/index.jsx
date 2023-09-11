@@ -1,9 +1,1 @@
-const MyAccount = () => {
-  return (
-    <>
-      My Account
-    </>
-  )
-}
-
-export default MyAccount
+export { default } from './MyAccount'
