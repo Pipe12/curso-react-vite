@@ -15,7 +15,7 @@ const Card = ({ price, title, description, category, images }) => {
   const context = useContext(ShoppingCartContext)
 
   return (
-    <div className="bg-white cursor-pointer w-56 h-60">
+    <div className="bg-white cursor-pointer w-56 h-60" onClick={() => context.openProductDetail()}>
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 py-1 px-1">{category?.name}</span>
         <img className="w-full h-full object-cover rounded-lg" src={images[0]} alt={description} />
