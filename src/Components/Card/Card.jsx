@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import PropTypes from 'prop-types'
+import { PlusIcon } from '@heroicons/react/24/outline'
 
 const Card = ({ price, title, description, category, images }) => {
   Card.propTypes = {
@@ -22,7 +23,7 @@ const Card = ({ price, title, description, category, images }) => {
           className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
           onClick={() => context.setCounter(context.counter + 1)}
         >
-          +
+          <PlusIcon />
         </div>
       </figure>
       <p className="flex justify-between">
