@@ -18,13 +18,18 @@ const Card = ({ product }) => {
   const context = useContext(ShoppingCartContext)
 
   const showProduct = (product) => {
+    console.log('show product')
     context.openProductDetail()
     context.setProductToShow(product)
   }
 
-  const addProductToCart = (product) => { 
+  const addProductToCart = (event, product) => {
+    event.stopPropagation()
+    console.log('Add product to cart') 
     context.setCounter(context.counter + 1)
     context.setCartProducts([...context.cartProducts, product])
+    context.openCheckoutSideMenu()
+    
   }
 
   return (
@@ -34,7 +39,7 @@ const Card = ({ product }) => {
         <img className="w-full h-full object-cover rounded-lg" src={images} alt={description} />
         <div 
           className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
-          onClick={() => addProductToCart(product)}
+          onClick={(event) => addProductToCart(event, product)}
         >
           <PlusIcon />
         </div>
