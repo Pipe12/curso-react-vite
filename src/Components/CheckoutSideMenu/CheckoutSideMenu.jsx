@@ -16,7 +16,7 @@ const CheckoutSideMenu = () => {
           <XMarkIcon className="w-6 h-6"/>
         </div>
       </div>
-      <div className='flex flex-col gap-2 px-6'>
+      <div className='flex flex-col gap-2 px-6 overflow-y-scroll'>
         {
           context.cartProducts.map( (product) => (
             <OrderCard 
