@@ -33,7 +33,7 @@ const Card = ({ product }) => {
   }
 
   const renderIcon = (product) => { 
-    const isInCart = context.cartProducts.includes(product) 
+    const isInCart = false
 
     return (
       isInCart
