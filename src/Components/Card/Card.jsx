@@ -29,8 +29,14 @@ const Card = ({ product }) => {
     context.setCounter(context.counter + 1)
     context.setCartProducts([...context.cartProducts, product])
     context.openCheckoutSideMenu()
-    
   }
+
+  const showCheckoutSideMenu = (event) => {
+    event.stopPropagation()
+    context.closeProductDetail()
+    context.openCheckoutSideMenu()
+  }
+  
 
   const renderIcon = (product) => { 
     const isInCart = context.cartProducts.includes(product)
@@ -40,6 +46,7 @@ const Card = ({ product }) => {
       ? (
         <div 
           className="absolute top-0 right-0 flex justify-center items-center  bg-black text-white w-6 h-6 rounded-full m-2 p-1"
+          onClick={(event) => showCheckoutSideMenu(event)}
         >
           <CheckIcon/>
         </div>
