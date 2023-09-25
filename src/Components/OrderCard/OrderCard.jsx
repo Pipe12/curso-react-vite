@@ -10,6 +10,18 @@ const OrderCard = ({id, price, title, images, deleteProductCart}) => {
     deleteProductCart: PropTypes.func
   }
 
+  let renderXMarkIcon
+  if (deleteProductCart) {
+    renderXMarkIcon = (
+      <div 
+        className="cursor-pointer"
+        onClick={() => deleteProductCart(id)}
+      >
+        <XMarkIcon className="w-6 h-6"/>
+      </div>
+    )
+  }
+
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-2">
@@ -20,12 +32,7 @@ const OrderCard = ({id, price, title, images, deleteProductCart}) => {
       </div>
       <div className="flex items-center gap-2">
         <p className="text-lg font-medium">{price}</p>
-        <div 
-          className="cursor-pointer"
-          onClick={() => deleteProductCart(id)}
-        >
-          <XMarkIcon className="w-6 h-6"/>
-        </div>
+        { renderXMarkIcon}
       </div>
     </div>
   )
