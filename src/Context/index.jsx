@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 import PropTypes from 'prop-types'
 
 export const ShoppingCartContext = createContext()
@@ -23,6 +23,27 @@ export const ShoppingCartProvider = ({ children }) => {
   const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
 
   const [myOrder, setMyOrder] = useState([])
+
+  const [products, setProducts] = useState(null)
+  const [filteredProducts, setFilteredProducts] = useState(null)
+  const [searchByTitle, setSearchByTitle] = useState(null)
+
+
+  const renderedProducts = (products, searchByTitle) => { 
+    const productsToSet = products.filter((product) => { if (product.title.toLowerCase().includes(searchByTitle.toLowerCase())) return product })
+    setFilteredProducts(productsToSet)
+  }
+
+  useEffect(() => {
+    // renderedProducts(products, searchByTitle)
+    if (products && searchByTitle) renderedProducts(products, searchByTitle)
+  }, [searchByTitle, products])
+
+  useEffect(() => {
+    fetch( 'https://api.escuelajs.co/api/v1/products')
+      .then(response => response.json())
+      .then(data => setProducts(data))
+  }, [])
   
   return (
     <ShoppingCartContext.Provider value={{
@@ -39,7 +60,13 @@ export const ShoppingCartProvider = ({ children }) => {
       openCheckoutSideMenu,
       closeCheckoutSideMenu,
       myOrder,
-      setMyOrder
+      setMyOrder,
+      products,
+      setProducts,
+      searchByTitle,
+      setSearchByTitle,
+      filteredProducts,
+      setFilteredProducts
     }}>
       { children }
     </ShoppingCartContext.Provider>
