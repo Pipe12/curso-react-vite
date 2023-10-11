@@ -50,12 +50,12 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to='/furnitures'
+            to='/furniture'
             className={({ isActive }) => 
               isActive ? activeStyle : undefined
             }
           >
-            Furnitures
+            Furniture
           </NavLink>
         </li>
         <li>
@@ -122,7 +122,7 @@ const Navbar = () => {
         </li>
         <li className='flex gap-1 justify-between items-center'>
           <ShoppingCartIcon className='w-5 h-5'/> 
-          <div>{context.counter}</div>
+          <div>{context.cartProducts.length}</div>
         </li>
       </ul>
     </nav>

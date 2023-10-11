@@ -8,6 +8,7 @@ import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import SignIn from '../SignIn'
 import Navbar from '../../Components/Navbar'
+import Category from '../Clothes/Category'
 import CheckoutSideMenu from '../../Components/CheckoutSideMenu/CheckoutSideMenu'
 import './App.css'
 
@@ -20,6 +21,11 @@ const AppRoutes = () => {
     { path: '/my-order/last', element: <MyOrder /> },
     { path: '/my-orders', element: <MyOrders /> },
     { path: '/sign-in', element: <SignIn /> },
+    { path: '/clothes', element: <Category /> },
+    { path: '/electronics', element: <Category /> },
+    { path: '/furniture', element: <Category /> },
+    { path: '/toys', element: <Category /> },
+    { path: '/others', element: <Category /> },
     { path: '/*', element: <NotFound /> },
   ])
 
